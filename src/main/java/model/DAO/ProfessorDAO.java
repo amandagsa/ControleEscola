@@ -63,4 +63,21 @@ public class ProfessorDAO {
 		}
 		
 	}
+	
+	public void alteraProfessor(Professor professor) throws SQLException {
+		this.conexao.getConnection().setAutoCommit(false);
+		query = "update professor set nomeProfessor = ?, ativa = ? where codProfessor = ?";
+
+		try {
+			PreparedStatement statement = this.conexao.getConnection().prepareStatement(query);
+			statement.setString(1, professor.getNomeProfessor());
+			statement.setBoolean(2, professor.isAtivo());
+			statement.setInt(3, professor.getCodProfessor());
+			statement.execute();
+			conexao.commit();
+		} catch (SQLException e) {
+			this.conexao.rollback();
+			throw e;
+		}
+	}
 }

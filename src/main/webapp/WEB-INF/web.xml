@@ -10,4 +10,16 @@
 <servlet-name>cadastrar-professor</servlet-name>
 <url-pattern>/cadastrarProfessor</url-pattern>
 </servlet-mapping>
+
+<servlet>
+<servlet-name>cadastrar-aluno</servlet-name>
+<servlet-class>controller.cadastrarAlunoController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>cadastrar-aluno</servlet-name>
+<url-pattern>/cadastrarAluno</url-pattern>
+</servlet-mapping>
+
+
 </web-app>
